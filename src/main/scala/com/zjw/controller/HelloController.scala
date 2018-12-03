@@ -15,7 +15,6 @@ class HelloController {
 
   @RequestMapping(Array("/hello")) def hello: Person = {
     logger.info("HelloController hello function invoked.")
-    "Hello, My application name is " + appName + "."
     new Person("zhangsan", 21)
   }
 }
