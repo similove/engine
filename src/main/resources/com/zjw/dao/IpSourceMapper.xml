@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjw.dao.IpSourceMapper">
+  <resultMap id="BaseResultMap" type="com.zjw.model.IpSource">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pic_urls" jdbcType="VARCHAR" property="picUrls" />
+    <result column="create_person_id" jdbcType="INTEGER" property="createPersonId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="laste_update_time" jdbcType="TIMESTAMP" property="lasteUpdateTime" />
+    <result column="history_update_time" jdbcType="VARCHAR" property="historyUpdateTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zjw.model.IpSource">
+    <result column="others" jdbcType="LONGVARCHAR" property="others" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, type_id, name, pic_urls, create_person_id, create_time, laste_update_time, history_update_time, 
+    description
+  </sql>
+  <sql id="Blob_Column_List">
+    others
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.zjw.model.IpSourceExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ip_source
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.zjw.model.IpSourceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ip_source
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ip_source
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ip_source
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zjw.model.IpSourceExample">
+    delete from ip_source
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zjw.model.IpSource">
+    insert into ip_source (id, type_id, name, 
+      pic_urls, create_person_id, create_time, 
+      laste_update_time, history_update_time, description, 
+      others)
+    values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{picUrls,jdbcType=VARCHAR}, #{createPersonId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lasteUpdateTime,jdbcType=TIMESTAMP}, #{historyUpdateTime,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{others,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zjw.model.IpSource">
+    insert into ip_source
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="picUrls != null">
+        pic_urls,
+      </if>
+      <if test="createPersonId != null">
+        create_person_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lasteUpdateTime != null">
+        laste_update_time,
+      </if>
+      <if test="historyUpdateTime != null">
+        history_update_time,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="others != null">
+        others,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrls != null">
+        #{picUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        #{createPersonId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasteUpdateTime != null">
+        #{lasteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="historyUpdateTime != null">
+        #{historyUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="others != null">
+        #{others,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zjw.model.IpSourceExample" resultType="java.lang.Integer">
+    select count(*) from ip_source
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ip_source
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.typeId != null">
+        type_id = #{record.typeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picUrls != null">
+        pic_urls = #{record.picUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createPersonId != null">
+        create_person_id = #{record.createPersonId,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lasteUpdateTime != null">
+        laste_update_time = #{record.lasteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.historyUpdateTime != null">
+        history_update_time = #{record.historyUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.others != null">
+        others = #{record.others,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update ip_source
+    set id = #{record.id,jdbcType=INTEGER},
+      type_id = #{record.typeId,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      pic_urls = #{record.picUrls,jdbcType=VARCHAR},
+      create_person_id = #{record.createPersonId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      laste_update_time = #{record.lasteUpdateTime,jdbcType=TIMESTAMP},
+      history_update_time = #{record.historyUpdateTime,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      others = #{record.others,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ip_source
+    set id = #{record.id,jdbcType=INTEGER},
+      type_id = #{record.typeId,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      pic_urls = #{record.picUrls,jdbcType=VARCHAR},
+      create_person_id = #{record.createPersonId,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      laste_update_time = #{record.lasteUpdateTime,jdbcType=TIMESTAMP},
+      history_update_time = #{record.historyUpdateTime,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zjw.model.IpSource">
+    update ip_source
+    <set>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrls != null">
+        pic_urls = #{picUrls,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        create_person_id = #{createPersonId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasteUpdateTime != null">
+        laste_update_time = #{lasteUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="historyUpdateTime != null">
+        history_update_time = #{historyUpdateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="others != null">
+        others = #{others,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zjw.model.IpSource">
+    update ip_source
+    set type_id = #{typeId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      pic_urls = #{picUrls,jdbcType=VARCHAR},
+      create_person_id = #{createPersonId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      laste_update_time = #{lasteUpdateTime,jdbcType=TIMESTAMP},
+      history_update_time = #{historyUpdateTime,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      others = #{others,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zjw.model.IpSource">
+    update ip_source
+    set type_id = #{typeId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      pic_urls = #{picUrls,jdbcType=VARCHAR},
+      create_person_id = #{createPersonId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      laste_update_time = #{lasteUpdateTime,jdbcType=TIMESTAMP},
+      history_update_time = #{historyUpdateTime,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

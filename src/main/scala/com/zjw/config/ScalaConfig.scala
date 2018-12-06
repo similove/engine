@@ -1,4 +1,4 @@
-package com.zjw.com.zjw.config
+package com.zjw.config
 
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import org.springframework.context.annotation.Configuration

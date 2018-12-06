@@ -42,7 +42,15 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!-- 指定数据库表，要生成哪些表，就写哪些表，要和数据库中对应，不能写错！ -->
+        <table tableName="ip_source"></table>
+        <table tableName="ip_type"></table>
+        <table tableName="discuss"></table>
+        <table tableName="museum"></table>
+        <table tableName="person"></table>
         <table tableName="user"></table>
+        <table tableName="user_role"></table>
+        <table tableName="role"></table>
+        <table tableName="role_permission"></table>
+        <table tableName="permission"></table>
     </context>
 </generatorConfiguration>
