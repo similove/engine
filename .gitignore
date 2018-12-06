@@ -4,3 +4,4 @@ target
 logs
 libs
 src/main/webapp/node_modules
+src/main/webpack/node_modules
