@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="status" jdbcType="CHAR" property="status" />
     <result column="register_ip" jdbcType="VARCHAR" property="registerIp" />
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, username, password, role_id, status, register_ip, last_login_ip, last_login_time, 
+    id, username, password, user_type, role_id, status, register_ip, last_login_ip, last_login_time, 
     register_time
   </sql>
   <select id="selectByExample" parameterType="com.zjw.model.UserExample" resultMap="BaseResultMap">
@@ -106,13 +107,13 @@
   </delete>
   <insert id="insert" parameterType="com.zjw.model.User">
     insert into user (id, username, password, 
-      role_id, status, register_ip, 
-      last_login_ip, last_login_time, register_time
-      )
+      user_type, role_id, status, 
+      register_ip, last_login_ip, last_login_time, 
+      register_time)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{roleId,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, #{registerIp,jdbcType=VARCHAR}, 
-      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{registerTime,jdbcType=TIMESTAMP}
-      )
+      #{userType,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{status,jdbcType=CHAR}, 
+      #{registerIp,jdbcType=VARCHAR}, #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{registerTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.zjw.model.User">
     insert into user
@@ -125,6 +126,9 @@
       </if>
       <if test="password != null">
         password,
+      </if>
+      <if test="userType != null">
+        user_type,
       </if>
       <if test="roleId != null">
         role_id,
@@ -154,6 +158,9 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=INTEGER},
       </if>
       <if test="roleId != null">
         #{roleId,jdbcType=INTEGER},
@@ -193,6 +200,9 @@
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
       </if>
+      <if test="record.userType != null">
+        user_type = #{record.userType,jdbcType=INTEGER},
+      </if>
       <if test="record.roleId != null">
         role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
@@ -221,6 +231,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
+      user_type = #{record.userType,jdbcType=INTEGER},
       role_id = #{record.roleId,jdbcType=INTEGER},
       status = #{record.status,jdbcType=CHAR},
       register_ip = #{record.registerIp,jdbcType=VARCHAR},
@@ -239,6 +250,9 @@
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=INTEGER},
       </if>
       <if test="roleId != null">
         role_id = #{roleId,jdbcType=INTEGER},
@@ -265,6 +279,7 @@
     update user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=INTEGER},
       role_id = #{roleId,jdbcType=INTEGER},
       status = #{status,jdbcType=CHAR},
       register_ip = #{registerIp,jdbcType=VARCHAR},

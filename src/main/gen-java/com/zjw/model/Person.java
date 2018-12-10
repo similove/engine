@@ -17,6 +17,12 @@ public class Person {
 
     private String familyAddress;
 
+    private String photoUrl;
+
+    private String idCardUrl1;
+
+    private String idCardUrl2;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +85,29 @@ public class Person {
 
     public void setFamilyAddress(String familyAddress) {
         this.familyAddress = familyAddress == null ? null : familyAddress.trim();
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl == null ? null : photoUrl.trim();
+    }
+
+    public String getIdCardUrl1() {
+        return idCardUrl1;
+    }
+
+    public void setIdCardUrl1(String idCardUrl1) {
+        this.idCardUrl1 = idCardUrl1 == null ? null : idCardUrl1.trim();
+    }
+
+    public String getIdCardUrl2() {
+        return idCardUrl2;
+    }
+
+    public void setIdCardUrl2(String idCardUrl2) {
+        this.idCardUrl2 = idCardUrl2 == null ? null : idCardUrl2.trim();
     }
 }

@@ -643,6 +643,216 @@ public class PersonExample {
             addCriterion("family_address not between", value1, value2, "familyAddress");
             return (Criteria) this;
         }
+
+        public Criteria andPhotoUrlIsNull() {
+            addCriterion("photo_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlIsNotNull() {
+            addCriterion("photo_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlEqualTo(String value) {
+            addCriterion("photo_url =", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlNotEqualTo(String value) {
+            addCriterion("photo_url <>", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlGreaterThan(String value) {
+            addCriterion("photo_url >", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("photo_url >=", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlLessThan(String value) {
+            addCriterion("photo_url <", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlLessThanOrEqualTo(String value) {
+            addCriterion("photo_url <=", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlLike(String value) {
+            addCriterion("photo_url like", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlNotLike(String value) {
+            addCriterion("photo_url not like", value, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlIn(List<String> values) {
+            addCriterion("photo_url in", values, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlNotIn(List<String> values) {
+            addCriterion("photo_url not in", values, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlBetween(String value1, String value2) {
+            addCriterion("photo_url between", value1, value2, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andPhotoUrlNotBetween(String value1, String value2) {
+            addCriterion("photo_url not between", value1, value2, "photoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1IsNull() {
+            addCriterion("id_card_url1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1IsNotNull() {
+            addCriterion("id_card_url1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1EqualTo(String value) {
+            addCriterion("id_card_url1 =", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1NotEqualTo(String value) {
+            addCriterion("id_card_url1 <>", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1GreaterThan(String value) {
+            addCriterion("id_card_url1 >", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1GreaterThanOrEqualTo(String value) {
+            addCriterion("id_card_url1 >=", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1LessThan(String value) {
+            addCriterion("id_card_url1 <", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1LessThanOrEqualTo(String value) {
+            addCriterion("id_card_url1 <=", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1Like(String value) {
+            addCriterion("id_card_url1 like", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1NotLike(String value) {
+            addCriterion("id_card_url1 not like", value, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1In(List<String> values) {
+            addCriterion("id_card_url1 in", values, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1NotIn(List<String> values) {
+            addCriterion("id_card_url1 not in", values, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1Between(String value1, String value2) {
+            addCriterion("id_card_url1 between", value1, value2, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl1NotBetween(String value1, String value2) {
+            addCriterion("id_card_url1 not between", value1, value2, "idCardUrl1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2IsNull() {
+            addCriterion("id_card_url2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2IsNotNull() {
+            addCriterion("id_card_url2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2EqualTo(String value) {
+            addCriterion("id_card_url2 =", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2NotEqualTo(String value) {
+            addCriterion("id_card_url2 <>", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2GreaterThan(String value) {
+            addCriterion("id_card_url2 >", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2GreaterThanOrEqualTo(String value) {
+            addCriterion("id_card_url2 >=", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2LessThan(String value) {
+            addCriterion("id_card_url2 <", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2LessThanOrEqualTo(String value) {
+            addCriterion("id_card_url2 <=", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2Like(String value) {
+            addCriterion("id_card_url2 like", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2NotLike(String value) {
+            addCriterion("id_card_url2 not like", value, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2In(List<String> values) {
+            addCriterion("id_card_url2 in", values, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2NotIn(List<String> values) {
+            addCriterion("id_card_url2 not in", values, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2Between(String value1, String value2) {
+            addCriterion("id_card_url2 between", value1, value2, "idCardUrl2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdCardUrl2NotBetween(String value1, String value2) {
+            addCriterion("id_card_url2 not between", value1, value2, "idCardUrl2");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

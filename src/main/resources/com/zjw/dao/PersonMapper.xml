@@ -10,6 +10,9 @@
     <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="native_place" jdbcType="VARCHAR" property="nativePlace" />
     <result column="family_address" jdbcType="VARCHAR" property="familyAddress" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="id_card_url1" jdbcType="VARCHAR" property="idCardUrl1" />
+    <result column="id_card_url2" jdbcType="VARCHAR" property="idCardUrl2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, age, gender, email, phone_number, native_place, family_address
+    id, name, age, gender, email, phone_number, native_place, family_address, photo_url, 
+    id_card_url1, id_card_url2
   </sql>
   <select id="selectByExample" parameterType="com.zjw.model.PersonExample" resultMap="BaseResultMap">
     select
@@ -105,10 +109,12 @@
   <insert id="insert" parameterType="com.zjw.model.Person">
     insert into person (id, name, age, 
       gender, email, phone_number, 
-      native_place, family_address)
+      native_place, family_address, photo_url, 
+      id_card_url1, id_card_url2)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
       #{gender,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
-      #{nativePlace,jdbcType=VARCHAR}, #{familyAddress,jdbcType=VARCHAR})
+      #{nativePlace,jdbcType=VARCHAR}, #{familyAddress,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, 
+      #{idCardUrl1,jdbcType=VARCHAR}, #{idCardUrl2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zjw.model.Person">
     insert into person
@@ -137,6 +143,15 @@
       <if test="familyAddress != null">
         family_address,
       </if>
+      <if test="photoUrl != null">
+        photo_url,
+      </if>
+      <if test="idCardUrl1 != null">
+        id_card_url1,
+      </if>
+      <if test="idCardUrl2 != null">
+        id_card_url2,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -162,6 +177,15 @@
       </if>
       <if test="familyAddress != null">
         #{familyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null">
+        #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardUrl1 != null">
+        #{idCardUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardUrl2 != null">
+        #{idCardUrl2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,6 +222,15 @@
       <if test="record.familyAddress != null">
         family_address = #{record.familyAddress,jdbcType=VARCHAR},
       </if>
+      <if test="record.photoUrl != null">
+        photo_url = #{record.photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCardUrl1 != null">
+        id_card_url1 = #{record.idCardUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCardUrl2 != null">
+        id_card_url2 = #{record.idCardUrl2,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +245,10 @@
       email = #{record.email,jdbcType=VARCHAR},
       phone_number = #{record.phoneNumber,jdbcType=VARCHAR},
       native_place = #{record.nativePlace,jdbcType=VARCHAR},
-      family_address = #{record.familyAddress,jdbcType=VARCHAR}
+      family_address = #{record.familyAddress,jdbcType=VARCHAR},
+      photo_url = #{record.photoUrl,jdbcType=VARCHAR},
+      id_card_url1 = #{record.idCardUrl1,jdbcType=VARCHAR},
+      id_card_url2 = #{record.idCardUrl2,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +277,15 @@
       <if test="familyAddress != null">
         family_address = #{familyAddress,jdbcType=VARCHAR},
       </if>
+      <if test="photoUrl != null">
+        photo_url = #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardUrl1 != null">
+        id_card_url1 = #{idCardUrl1,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardUrl2 != null">
+        id_card_url2 = #{idCardUrl2,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -252,7 +297,10 @@
       email = #{email,jdbcType=VARCHAR},
       phone_number = #{phoneNumber,jdbcType=VARCHAR},
       native_place = #{nativePlace,jdbcType=VARCHAR},
-      family_address = #{familyAddress,jdbcType=VARCHAR}
+      family_address = #{familyAddress,jdbcType=VARCHAR},
+      photo_url = #{photoUrl,jdbcType=VARCHAR},
+      id_card_url1 = #{idCardUrl1,jdbcType=VARCHAR},
+      id_card_url2 = #{idCardUrl2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
