@@ -1,5 +1,6 @@
 .idea
 engine.iml
+src/main/webapp/.DS_Store
 target
 logs
 libs
