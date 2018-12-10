@@ -4,7 +4,7 @@ CREATE DATABASE `engine`
   COLLATE utf8_general_ci;
 
 USE `engine`;
-
+# IP资产表
 DROP TABLE IF EXISTS `ip_source`;
 CREATE TABLE `ip_source` (
   `id`                  INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -20,7 +20,7 @@ CREATE TABLE `ip_source` (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
-
+# 资产类型表
 DROP TABLE IF EXISTS `ip_type`;
 CREATE TABLE `ip_type` (
   `id`                  INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -34,7 +34,7 @@ CREATE TABLE `ip_type` (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
-
+# 评论表
 DROP TABLE IF EXISTS `discuss`;
 CREATE TABLE `discuss` (
   `id`           INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -44,7 +44,7 @@ CREATE TABLE `discuss` (
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
-
+# 博物馆表
 DROP TABLE IF EXISTS `museum`;
 CREATE TABLE `museum` (
   `id`               INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -56,6 +56,19 @@ CREATE TABLE `museum` (
   DEFAULT CHARSET = utf8;
 
 
+DROP TABLE IF EXISTS `identification`;
+CREATE TABLE `identification` (
+  `id`             INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `name`           VARCHAR(64)        NOT NULL,
+  `age`            VARCHAR(32)        NOT NULL,
+  `gender`         INT(8),
+  `email`          VARCHAR(32),
+  `phone_number`   VARCHAR(16),
+  `native_place`   VARCHAR(64),
+  `family_address` VARCHAR(64)
+);
+
+#
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
   `id`             INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -65,7 +78,10 @@ CREATE TABLE `person` (
   `email`          VARCHAR(32),
   `phone_number`   VARCHAR(16),
   `native_place`   VARCHAR(64),
-  `family_address` VARCHAR(64)
+  `family_address` VARCHAR(64),
+  `photo_url`      VARCHAR(64),
+  `id_card_url1`   VARCHAR(64),
+  `id_card_url2`   VARCHAR(64)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -75,6 +91,7 @@ CREATE TABLE `user` (
   `id`              INT(8) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `username`        VARCHAR(64)        NOT NULL,
   `password`        VARCHAR(64)        NOT NULL,
+  `user_type`       INT(2),
   `role_id`         INT(8),
   `status`          CHAR(1),
   `register_ip`     VARCHAR(16),

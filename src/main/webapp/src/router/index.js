@@ -1,11 +1,11 @@
 import VueRouter from 'vue-router'
 
-import account from './components/Account.vue'
-import goodList from './components/GoodList.vue'
-import login from './sub-components/login.vue'
-import register from './sub-components/register.vue'
+import account from '../components/Account.vue'
+import goodList from '../components/GoodList.vue'
+import login from '../sub-components/login.vue'
+import register from '../sub-components/register.vue'
 
-const router = new VueRouter({
+const index = new VueRouter({
   routes: [
     {
       path: '/account',
@@ -22,4 +22,4 @@ const router = new VueRouter({
   ]
 });
 
-export default router
+export default index
